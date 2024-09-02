@@ -1,0 +1,1424 @@
+2024-06-10 14:34:34 [INFO] Question: corelation between maritual status and occupation
+2024-06-10 14:34:35 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:34:35 [INFO] Prompt ID: 73dc3db7-d0aa-40d6-a599-e00ddda11934
+2024-06-10 14:34:35 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:34:35 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:34:35 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:34:35 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:34:35 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000275,P00090142,F,18-25,13,A,3,0,15,11661
+1002813,P00232542,F,55+,8,B,0,1,13,9775
+1004919,P00307142,M,51-55,7,C,1,0,16,17368
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ corelation between maritual status and occupation
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 14:34:35 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:36:57 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000275,P00090142,F,18-25,13,A,3,0,15,11661
+1002813,P00232542,F,55+,8,B,0,1,13,9775
+1004919,P00307142,M,51-55,7,C,1,0,16,17368
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ corelation between maritual status and occupation
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-06-10 14:36:57 [INFO] Code generated:
+            ```
+            Python
+import pandas as pd
+
+# Initialize the result variable as empty dictionary
+result = {}
+
+# Merge dfs dataframes into one if there are multiple
+dfs = [pd.DataFrame([
+    {"User_ID": 1000275, "Product_ID": "P00090142", "Gender": "F", "Age": "18-25", "Occupation": 13, "City_Category": "A", "Stay_In_Current_City_Years": 3, "Marital_Status": 0, "Product_Category": 11661},
+    {"User_ID": 1002813, "Product_ID": "P00232542", "Gender": "F", "Age": "55+", "Occupation": 8, "City_Category": "B", "Stay_In_Current_City_Years": 0, "Marital_Status": 1, "Product_Category": 9775},
+    {"User_ID": 1004919, "Product_ID": "P00307142", "Gender": "M", "Age": "51-55", "Occupation": 7, "City_Category": "C", "Stay_In_Current_City_Years": 1, "Marital_Status": 0, "Product_Category": 17368}
+])]
+
+# Combine dfs into one
+df = pd.concat(dfs)
+
+# Correlation between Marital_Status and Occupation
+correlation_result = df[['Occupation', 'Marital_Status']].corr()
+print(f"Correlation between Marital_Status and Occupation: {correlation_result}")
+
+# Add result to the dictionary
+result.update({"type": "dataframe", "value": correlation_result})
+
+print(result)
+            ```
+            
+2024-06-10 14:36:57 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:36:57 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:36:57 [INFO] 
+Code running:
+```
+Python
+result = {}
+df = pd.concat(dfs)
+correlation_result = df[['Occupation', 'Marital_Status']].corr()
+print(f'Correlation between Marital_Status and Occupation: {correlation_result}')
+result.update({'type': 'dataframe', 'value': correlation_result})
+print(result)
+        ```
+2024-06-10 14:36:57 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:36:57 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+NameError: name 'Python' is not defined
+
+2024-06-10 14:36:57 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-06-10 14:36:57 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:36:57 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:36:57 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000275,P00090142,F,18-25,13,A,3,0,15,11661
+1002813,P00232542,F,55+,8,B,0,1,13,9775
+1004919,P00307142,M,51-55,7,C,1,0,16,17368
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ corelation between maritual status and occupation
+
+You generated this python code:
+Python
+result = {}
+df = pd.concat(dfs)
+correlation_result = df[['Occupation', 'Marital_Status']].corr()
+print(f'Correlation between Marital_Status and Occupation: {correlation_result}')
+result.update({'type': 'dataframe', 'value': correlation_result})
+print(result)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+NameError: name 'Python' is not defined
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:36:57 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 14:40:24 [INFO] Question: median "Age" where "Marital_Status" is 1
+2024-06-10 14:40:24 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:40:24 [INFO] Prompt ID: ddac3818-83c9-4573-b4fd-be1fbc791890
+2024-06-10 14:40:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:40:25 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:40:25 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:40:25 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:40:25 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1002350,P00319642,F,51-55,6,C,1,1,7,8917
+1003843,P00228742,F,18-25,10,A,3,0,3,7928
+1005068,P00260242,M,26-35,9,B,0,1,11,4138
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 14:40:25 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:41:33 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1002350,P00319642,F,51-55,6,C,1,1,7,8917
+1003843,P00228742,F,18-25,10,A,3,0,3,7928
+1005068,P00260242,M,26-35,9,B,0,1,11,4138
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-06-10 14:41:33 [INFO] Code generated:
+            ```
+            import pandas as pd
+
+dfs = [...]  # Your initial dataframes list
+
+# Filter the dataframe where Marital_Status is 1
+filtered_dfs = [df for df in dfs if df['Marital_Status'].values[0] == 1]
+
+# If there are no rows, return an empty dictionary
+if not filtered_dfs:
+    result = {"type": "string", "value": "No rows found."}
+else:
+    # Combine all dataframes into one and calculate the median Age
+    combined_df = pd.concat(filtered_dfs)
+    median_age = combined_df["Age"].median()
+
+    # Declare result variable as a dictionary of type and value
+    result = {"type": "number", "value": median_age}
+
+print(result)
+            ```
+            
+2024-06-10 14:41:33 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:41:33 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:41:33 [INFO] 
+Code running:
+```
+filtered_dfs = [df for df in dfs if df['Marital_Status'].values[0] == 1]
+if not filtered_dfs:
+    result = {'type': 'string', 'value': 'No rows found.'}
+else:
+    combined_df = pd.concat(filtered_dfs)
+    median_age = combined_df['Age'].median()
+    result = {'type': 'number', 'value': median_age}
+print(result)
+        ```
+2024-06-10 14:41:33 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:41:33 [INFO] Executing Step 7: ResultValidation
+2024-06-10 14:41:33 [INFO] Answer: {'type': 'string', 'value': 'No rows found.'}
+2024-06-10 14:41:33 [INFO] Executing Step 8: ResultParsing
+2024-06-10 14:44:30 [INFO] Question: median "Age" where "Marital_Status" is 1
+2024-06-10 14:44:30 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:44:30 [INFO] Prompt ID: b8d8b292-ee52-4489-a53a-d84b0414296f
+2024-06-10 14:44:30 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:44:30 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:44:30 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:44:30 [INFO] Using cached response
+2024-06-10 14:44:30 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:44:30 [INFO] Executing Step 2: Skipping...
+2024-06-10 14:44:30 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:44:30 [INFO] Executing Step 3: Skipping...
+2024-06-10 14:44:30 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:44:30 [INFO] Executing Step 4: Skipping...
+2024-06-10 14:44:30 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:44:30 [INFO] 
+Code running:
+```
+filtered_dfs = [df for df in dfs if df['Marital_Status'].values[0] == 1]
+if not filtered_dfs:
+    result = {'type': 'string', 'value': 'No rows found.'}
+else:
+    combined_df = pd.concat(filtered_dfs)
+    median_age = combined_df['Age'].median()
+    result = {'type': 'number', 'value': median_age}
+print(result)
+        ```
+2024-06-10 14:44:30 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:44:30 [INFO] Executing Step 7: ResultValidation
+2024-06-10 14:44:30 [INFO] Answer: {'type': 'string', 'value': 'No rows found.'}
+2024-06-10 14:44:30 [INFO] Executing Step 8: ResultParsing
+2024-06-10 14:44:47 [INFO] Question: median "Age" where "Marital_Status" is 1
+2024-06-10 14:44:47 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:44:47 [INFO] Prompt ID: 482a30c1-9d00-40b5-8ea5-338923f9f71a
+2024-06-10 14:44:47 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:44:47 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:44:47 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:44:47 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:44:47 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000480,P00193942,F,55+,17,C,2,1,17,6676
+1000064,P00135342,M,26-35,16,A,4+,0,10,23333
+1000137,P00354742,F,46-50,9,B,1,0,11,21354
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 14:44:47 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:46:32 [INFO] Prompt used:
+            
+
+### PREVIOUS CONVERSATION
+### QUERY
+ median "Age" where "Marital_Status" is 1
+### ANSWER
+ No rows found.
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000480,P00193942,F,55+,17,C,2,1,17,6676
+1000064,P00135342,M,26-35,16,A,4+,0,10,23333
+1000137,P00354742,F,46-50,9,B,1,0,11,21354
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-06-10 14:46:32 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataframes into dfs
+dfs = []
+
+# Initialize dfs with the provided dataframe
+dfs.append(pd.DataFrame({
+    "User_ID": ["1000480", "1000064", "1000137"],
+    "Product_ID": ["P00193942", "P00135342", "P00354742"],
+    "Gender": ["F", "M", "F"],
+    "Age": [55, 26, 46],
+    "Occupation": ["17", "16", "9"],
+    "City_Category": ["C", "A", "B"],
+    "Stay_In_Current_City_Years": [2, 4, 1],
+    "Marital_Status": [1, 0, 11],
+    "Product_Category": [6676, 23333, 21354]
+}))
+
+# Define the query function
+def query(df):
+    return df.loc[df['Marital_Status'] == 1].median()['Age']
+
+# Execute the query and get the result
+result = {"type": "number", "value": query(dfs[0])}
+
+print(result)
+            ```
+            
+2024-06-10 14:46:32 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:46:32 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:46:32 [INFO] 
+Code running:
+```
+dfs.append(pd.DataFrame({'User_ID': ['1000480', '1000064', '1000137'], 'Product_ID': ['P00193942', 'P00135342', 'P00354742'], 'Gender': ['F', 'M', 'F'], 'Age': [55, 26, 46], 'Occupation': ['17', '16', '9'], 'City_Category': ['C', 'A', 'B'], 'Stay_In_Current_City_Years': [2, 4, 1], 'Marital_Status': [1, 0, 11], 'Product_Category': [6676, 23333, 21354]}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1].median()['Age']
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+        ```
+2024-06-10 14:46:32 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:46:32 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Age'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 8, in <module>
+  File "<string>", line 5, in query
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 981, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 1089, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Age'
+
+2024-06-10 14:46:32 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-06-10 14:46:32 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:46:32 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:46:32 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000480,P00193942,F,55+,17,C,2,1,17,6676
+1000064,P00135342,M,26-35,16,A,4+,0,10,23333
+1000137,P00354742,F,46-50,9,B,1,0,11,21354
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ median "Age" where "Marital_Status" is 1
+### ANSWER
+ No rows found.
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+You generated this python code:
+dfs.append(pd.DataFrame({'User_ID': ['1000480', '1000064', '1000137'], 'Product_ID': ['P00193942', 'P00135342', 'P00354742'], 'Gender': ['F', 'M', 'F'], 'Age': [55, 26, 46], 'Occupation': ['17', '16', '9'], 'City_Category': ['C', 'A', 'B'], 'Stay_In_Current_City_Years': [2, 4, 1], 'Marital_Status': [1, 0, 11], 'Product_Category': [6676, 23333, 21354]}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1].median()['Age']
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Age'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 8, in <module>
+  File "<string>", line 5, in query
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 981, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 1089, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Age'
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:46:32 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 14:48:24 [INFO] Prompt used:
+            
+
+### PREVIOUS CONVERSATION
+### QUERY
+ median "Age" where "Marital_Status" is 1
+### ANSWER
+ No rows found.
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000480,P00193942,F,55+,17,C,2,1,17,6676
+1000064,P00135342,M,26-35,16,A,4+,0,10,23333
+1000137,P00354742,F,46-50,9,B,1,0,11,21354
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ median "Age" where "Marital_Status" is 1
+### ANSWER
+ No rows found.
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+You generated this python code:
+dfs.append(pd.DataFrame({'User_ID': ['1000480', '1000064', '1000137'], 'Product_ID': ['P00193942', 'P00135342', 'P00354742'], 'Gender': ['F', 'M', 'F'], 'Age': [55, 26, 46], 'Occupation': ['17', '16', '9'], 'City_Category': ['C', 'A', 'B'], 'Stay_In_Current_City_Years': [2, 4, 1], 'Marital_Status': [1, 0, 11], 'Product_Category': [6676, 23333, 21354]}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1].median()['Age']
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'Age'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 8, in <module>
+  File "<string>", line 5, in query
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 981, in __getitem__
+    return self._get_value(key)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 1089, in _get_value
+    loc = self.index.get_loc(label)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Age'
+
+
+Fix the python code above and return the new python code:
+            
+2024-06-10 14:48:24 [INFO] Code generated:
+            ```
+            import pandas as pd
+
+dfs.append(pd.DataFrame({
+    'User_ID': ['1000480', '1000064', '1000137'],
+    'Product_ID': ['P00193942', 'P00135342', 'P00354742'],
+    'Gender': ['F', 'M', 'F'],
+    'Age': [55, 26, 46],
+    'Occupation': ['17', '16', '9'],
+    'City_Category': ['C', 'A', 'B'],
+    'Stay_In_Current_City_Years': [2, 4, 1],
+    'Marital_Status': [1, 0, 11],
+    'Product_Category': [6676, 23333, 21354]
+}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1]['Age'].median()
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+            ```
+            
+2024-06-10 14:48:24 [INFO] Executing Step 2: CodeCleaning
+2024-06-10 14:48:24 [INFO] 
+Code running:
+```
+dfs.append(pd.DataFrame({'User_ID': ['1000480', '1000064', '1000137'], 'Product_ID': ['P00193942', 'P00135342', 'P00354742'], 'Gender': ['F', 'M', 'F'], 'Age': [55, 26, 46], 'Occupation': ['17', '16', '9'], 'City_Category': ['C', 'A', 'B'], 'Stay_In_Current_City_Years': [2, 4, 1], 'Marital_Status': [1, 0, 11], 'Product_Category': [6676, 23333, 21354]}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1]['Age'].median()
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+        ```
+2024-06-10 14:48:25 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 760, in nanmedian
+    values = values.astype("f8")
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '46-50'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 8, in <module>
+  File "<string>", line 5, in query
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11917, in median
+    return NDFrame.median(self, axis, skipna, level, numeric_only, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11413, in median
+    return self._stat_function(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11353, in _stat_function
+    return self._reduce(
+           ^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 4816, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 155, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 763, in nanmedian
+    raise TypeError(str(err)) from err
+TypeError: could not convert string to float: '46-50'
+
+2024-06-10 14:48:25 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-06-10 14:48:25 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:48:25 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:48:25 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000480,P00193942,F,55+,17,C,2,1,17,6676
+1000064,P00135342,M,26-35,16,A,4+,0,10,23333
+1000137,P00354742,F,46-50,9,B,1,0,11,21354
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ median "Age" where "Marital_Status" is 1
+### ANSWER
+ No rows found.
+### QUERY
+ median "Age" where "Marital_Status" is 1
+
+You generated this python code:
+dfs.append(pd.DataFrame({'User_ID': ['1000480', '1000064', '1000137'], 'Product_ID': ['P00193942', 'P00135342', 'P00354742'], 'Gender': ['F', 'M', 'F'], 'Age': [55, 26, 46], 'Occupation': ['17', '16', '9'], 'City_Category': ['C', 'A', 'B'], 'Stay_In_Current_City_Years': [2, 4, 1], 'Marital_Status': [1, 0, 11], 'Product_Category': [6676, 23333, 21354]}))
+
+
+def query(df):
+    return df.loc[df['Marital_Status'] == 1]['Age'].median()
+
+
+result = {'type': 'number', 'value': query(dfs[0])}
+print(result)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 760, in nanmedian
+    values = values.astype("f8")
+             ^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '46-50'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 8, in <module>
+  File "<string>", line 5, in query
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11917, in median
+    return NDFrame.median(self, axis, skipna, level, numeric_only, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11413, in median
+    return self._stat_function(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 11353, in _stat_function
+    return self._reduce(
+           ^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\series.py", line 4816, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 155, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\nanops.py", line 763, in nanmedian
+    raise TypeError(str(err)) from err
+TypeError: could not convert string to float: '46-50'
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:48:25 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 14:54:07 [INFO] Question: avg "Age"
+2024-06-10 14:54:07 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:54:07 [INFO] Prompt ID: e0cb7005-e41a-4177-ac57-1a01296f6b0b
+2024-06-10 14:54:07 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:54:07 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:54:07 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:54:07 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:54:07 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ avg "Age"
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 14:54:07 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:55:17 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ avg "Age"
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-06-10 14:55:17 [INFO] Code generated:
+            ```
+            # Importing required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def calculate_avg_age(dfs):
+    # Ensure dfs is a list containing the single dataframe for operation
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError("Input should be a list containing only one DataFrame.")
+    
+    # Selecting the first DataFrame from the input list
+    df = dfs[0]
+    
+    # Check if 'Age' column exists in the dataframe, otherwise return None
+    if 'Age' not in df.columns:
+        result = {"type": "string", "value": f"The 'Age' column is missing from the DataFrame."}
+        return result
+    
+    # Calculating average age and storing it with appropriate type
+    avg_age = df['Age'].astype(float).mean()  # Ensure Age is numeric for mean calculation
+    result = {"type": "number", "value": avg_age}
+    return result
+
+def generate_avg_age_chart(dfs, city_category):
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError("Input should be a list containing only one DataFrame.")
+    
+    # Selecting the first DataFrame from the input list
+    df = dfs[0]
+    
+    # Check if both 'City_Category' and 'Age' columns exist, otherwise return None
+    if city_category not in df['City_Category'].values or 'Age' not in df.columns:
+        result = {"type": "string", "value": f"Cannot generate chart due to missing data."}
+        return result
+    
+    # Creating a pivot table for plotting by City_Category and aggregating ages as sum (to get total age per category)
+    avg_age_by_city = df.pivot_table(index='City_Category', aggfunc='sum')['Age']
+    
+    plt.figure()  # Create a new figure for the plot
+    avg_age_by_city.plot(kind='bar')  # Generate bar chart
+    plteck("avg_age_chart_by_city_category.png")  # Save the generated plot as PNG file
+    
+    result = {"type": "string", "value": f"The average age by City Category has been plotted and saved as 'avg_age_chart_by_city_category.png'."}
+    return result
+
+# Example usage:
+dfs = [pd.read_csv('yourfile.csv')]  # Assuming dfs is a list with one DataFrame read from CSV
+result = calculate_avg_age(dfs)
+print(result)
+
+city_category = 'A'  # Specify the City Category for chart generation, e.g., 'A', 'B', etc.
+chart_result = generate_avg_age_chart(dfs, city_category)
+print(chart_result)
+            ```
+            
+2024-06-10 14:55:17 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:55:17 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:55:17 [INFO] Saving charts to c:\Users\acera\Desktop\rag langchain\pandasai\exports\charts\temp_chart.png
+2024-06-10 14:55:17 [INFO] 
+Code running:
+```
+def calculate_avg_age(dfs):
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError('Input should be a list containing only one DataFrame.')
+    df = dfs[0]
+    if 'Age' not in df.columns:
+        result = {'type': 'string', 'value': f"The 'Age' column is missing from the DataFrame."}
+        return result
+    avg_age = df['Age'].astype(float).mean()
+    result = {'type': 'number', 'value': avg_age}
+    return result
+
+
+def generate_avg_age_chart(dfs, city_category):
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError('Input should be a list containing only one DataFrame.')
+    df = dfs[0]
+    if city_category not in df['City_Category'].values or 'Age' not in df.columns:
+        result = {'type': 'string', 'value': f'Cannot generate chart due to missing data.'}
+        return result
+    avg_age_by_city = df.pivot_table(index='City_Category', aggfunc='sum')['Age']
+    plt.figure()
+    avg_age_by_city.plot(kind='bar')
+    plteck('c:/Users/acera/Desktop/rag langchain/pandasai/exports/charts/temp_chart.png')
+    result = {'type': 'string', 'value': f"The average age by City Category has been plotted and saved as 'c:/Users/acera/Desktop/rag langchain/pandasai/exports/charts/temp_chart.png'."}
+    return result
+
+
+result = calculate_avg_age(dfs)
+print(result)
+city_category = 'A'
+chart_result = generate_avg_age_chart(dfs, city_category)
+print(chart_result)
+        ```
+2024-06-10 14:55:17 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:55:17 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 28, in <module>
+  File "<string>", line 8, in calculate_avg_age
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 6240, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\managers.py", line 448, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\managers.py", line 352, in apply
+    applied = getattr(b, f)(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\blocks.py", line 526, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 299, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 230, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 170, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '0-17'
+
+2024-06-10 14:55:17 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-06-10 14:55:17 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:55:17 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:55:17 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ avg "Age"
+
+You generated this python code:
+def calculate_avg_age(dfs):
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError('Input should be a list containing only one DataFrame.')
+    df = dfs[0]
+    if 'Age' not in df.columns:
+        result = {'type': 'string', 'value': f"The 'Age' column is missing from the DataFrame."}
+        return result
+    avg_age = df['Age'].astype(float).mean()
+    result = {'type': 'number', 'value': avg_age}
+    return result
+
+
+def generate_avg_age_chart(dfs, city_category):
+    if not isinstance(dfs, list) or len(dfs) != 1:
+        raise ValueError('Input should be a list containing only one DataFrame.')
+    df = dfs[0]
+    if city_category not in df['City_Category'].values or 'Age' not in df.columns:
+        result = {'type': 'string', 'value': f'Cannot generate chart due to missing data.'}
+        return result
+    avg_age_by_city = df.pivot_table(index='City_Category', aggfunc='sum')['Age']
+    plt.figure()
+    avg_age_by_city.plot(kind='bar')
+    plteck('c:/Users/acera/Desktop/rag langchain/pandasai/exports/charts/temp_chart.png')
+    result = {'type': 'string', 'value': f"The average age by City Category has been plotted and saved as 'c:/Users/acera/Desktop/rag langchain/pandasai/exports/charts/temp_chart.png'."}
+    return result
+
+
+result = calculate_avg_age(dfs)
+print(result)
+city_category = 'A'
+chart_result = generate_avg_age_chart(dfs, city_category)
+print(chart_result)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 28, in <module>
+  File "<string>", line 8, in calculate_avg_age
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\generic.py", line 6240, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\managers.py", line 448, in astype
+    return self.apply("astype", dtype=dtype, copy=copy, errors=errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\managers.py", line 352, in apply
+    applied = getattr(b, f)(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\internals\blocks.py", line 526, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 299, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 230, in astype_array
+    values = astype_nansafe(values, dtype, copy=copy)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandas\core\dtypes\astype.py", line 170, in astype_nansafe
+    return arr.astype(dtype, copy=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: could not convert string to float: '0-17'
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:55:17 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 14:58:15 [INFO] Question: avg "Age"
+2024-06-10 14:58:15 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 14:58:15 [INFO] Prompt ID: 0734b976-2ac0-4925-8ef0-21a344dd9282
+2024-06-10 14:58:15 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 14:58:15 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 14:58:15 [INFO] Executing Step 1: CacheLookup
+2024-06-10 14:58:16 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 14:58:16 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ avg "Age"
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 14:58:16 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 14:58:18 [INFO] Prompt used:
+            
+
+### PREVIOUS CONVERSATION
+### QUERY
+ avg "Age"
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ avg "Age"
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-06-10 14:58:18 [INFO] Code generated:
+            ```
+            
+            ```
+            
+2024-06-10 14:58:18 [INFO] Executing Step 4: CachePopulation
+2024-06-10 14:58:18 [INFO] Executing Step 5: CodeCleaning
+2024-06-10 14:58:18 [INFO] 
+Code running:
+```
+
+        ```
+2024-06-10 14:58:18 [INFO] Executing Step 6: CodeExecution
+2024-06-10 14:58:18 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-06-10 14:58:18 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-06-10 14:58:18 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:58:18 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:58:18 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ avg "Age"
+### QUERY
+ avg "Age"
+
+You generated this python code:
+
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:58:18 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 14:59:16 [INFO] Prompt used:
+            
+
+### PREVIOUS CONVERSATION
+### QUERY
+ avg "Age"
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ avg "Age"
+### QUERY
+ avg "Age"
+
+You generated this python code:
+
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+            
+2024-06-10 14:59:16 [INFO] Code generated:
+            ```
+            import pandas as pd
+
+# Assuming dfs[0] is your DataFrame
+df = dfs[0]
+
+# Convert "Age" column from string to numeric format (example approach)
+# Note: This assumes a uniform conversion. Adjust based on actual data distribution and needs.
+age_mapping = {'18-25': 21, '0-17': 13, '55+': 60} # Example mapping; adjust as needed
+df['Age'] = df['Age'].map(age_mapping)
+
+# Calculate the average age
+average_age = df['Age'].mean()
+print("Average Age:", average_age)
+            ```
+            
+2024-06-10 14:59:16 [INFO] Executing Step 2: CodeCleaning
+2024-06-10 14:59:16 [INFO] 
+Code running:
+```
+df = dfs[0]
+age_mapping = {'18-25': 21, '0-17': 13, '55+': 60}
+df['Age'] = df['Age'].map(age_mapping)
+average_age = df['Age'].mean()
+print('Average Age:', average_age)
+        ```
+2024-06-10 14:59:17 [ERROR] Failed with error: Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+2024-06-10 14:59:17 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-06-10 14:59:17 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-06-10 14:59:17 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-06-10 14:59:17 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ avg "Age"
+### QUERY
+ avg "Age"
+
+You generated this python code:
+df = dfs[0]
+age_mapping = {'18-25': 21, '0-17': 13, '55+': 60}
+df['Age'] = df['Age'].map(age_mapping)
+average_age = df['Age'].mean()
+print('Average Age:', average_age)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+2024-06-10 14:59:17 [INFO] Executing Step 1: CodeGenerator
+2024-06-10 15:00:44 [INFO] Prompt used:
+            
+
+### PREVIOUS CONVERSATION
+### QUERY
+ avg "Age"
+<dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ avg "Age"
+### QUERY
+ avg "Age"
+
+You generated this python code:
+df = dfs[0]
+age_mapping = {'18-25': 21, '0-17': 13, '55+': 60}
+df['Age'] = df['Age'].map(age_mapping)
+average_age = df['Age'].mean()
+print('Average Age:', average_age)
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\acera\Desktop\rag langchain\virenv\Lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 175, in execute_code
+    raise NoResultFoundError("No result returned")
+pandasai.exceptions.NoResultFoundError: No result returned
+
+
+Fix the python code above and return the new python code:
+            
+2024-06-10 15:00:44 [INFO] Code generated:
+            ```
+            import pandas as pd
+from collections import defaultdict
+
+# Assuming 'dfs' is the list of dataframes and we are interested in dfs[0]
+df = dfs[0]
+
+# Since direct mapping isn't suitable for calculating an average, let's convert age groups into a numerical value that makes sense.
+age_mapping = {'18-25': 22.5, '0-17': 13.5, '55+': 60}  # Averaged values for simplicity and coherence
+df['Age'] = df['Age'].apply(lambda x: age_mapping[x] if x in age_mapping else pd.NA)
+
+# Ensuring that missing values are handled properly by converting them to NaN after mapping, enabling us to calculate the mean correctly.
+df['Age'] = pd.to_numeric(df['Age'], errors='coerce')  # Convert all to numeric, treating non-mapped as NaNs
+
+# Calculate and print the average age considering NA values (NaN) as not counted towards the average.
+average_age = df['Age'].mean()
+print('Average Age:', round(average_age, 2))
+            ```
+            
+2024-06-10 15:00:44 [INFO] Executing Step 2: CodeCleaning
+2024-06-10 15:00:44 [ERROR] Pipeline failed on step 2: Generated code includes import of collections which is not in whitelist.
+2024-06-10 15:00:44 [ERROR] Pipeline failed on step 6: Generated code includes import of collections which is not in whitelist.
+2024-06-10 15:50:39 [INFO] Question: find all married user_id
+2024-06-10 15:50:39 [INFO] Running PandasAI with langchain_ollama-llm LLM...
+2024-06-10 15:50:39 [INFO] Prompt ID: e602d69b-610e-46de-ae96-c0151d91b183
+2024-06-10 15:50:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-06-10 15:50:39 [INFO] Executing Step 0: ValidatePipelineInput
+2024-06-10 15:50:39 [INFO] Executing Step 1: CacheLookup
+2024-06-10 15:50:39 [INFO] Executing Step 2: PromptGeneration
+2024-06-10 15:50:39 [INFO] Using prompt: <dataframe>
+dfs[0]:550068x10
+User_ID,Product_ID,Gender,Age,Occupation,City_Category,Stay_In_Current_City_Years,Marital_Status,Product_Category,Purchase
+1000508,P00183342,F,18-25,12,A,1,1,14,1960
+1002754,P00041742,M,55+,16,B,4+,1,1,809
+1000463,P00370442,F,0-17,20,C,2,0,7,12457
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ find all married user_id
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-06-10 15:50:39 [INFO] Executing Step 3: CodeGenerator
+2024-06-10 15:53:50 [ERROR] Pipeline failed on step 3: No code found in the response
