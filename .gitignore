@@ -1,2 +1,4 @@
 virenv
 myenv
+kafka/node_modules
+__pycache__
